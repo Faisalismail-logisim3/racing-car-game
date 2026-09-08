@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #050505;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #111;
+}
+
+/* HUD */
+
+#hud {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    z-index: 10;
+    pointer-events: none;
+}
+
+.hudBox {
+    min-width: 90px;
+    padding: 9px 12px;
+
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    color: white;
+
+    backdrop-filter: blur(5px);
+}
+
+.hudBox span {
+    display: block;
+
+    font-size: 10px;
+    color: #aaa;
+
+    margin-bottom: 3px;
+}
+
+.hudBox strong {
+    font-size: 16px;
+}
+
+/* Nitro */
+
+#nitroContainer {
+    position: absolute;
+
+    top: 105px;
+    right: 20px;
+
+    width: 180px;
+
+    z-index: 10;
+
+    color: white;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+#nitroBar {
+    width: 100%;
+    height: 14px;
+
+    margin-top: 5px;
+
+    background: #222;
+
+    border: 1px solid #777;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+#nitroFill {
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #00c6ff,
+        #0072ff
+    );
+
+    transition: width 0.1s;
+}
+
+/* Screens */
+
+.screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.62);
+
+    z-index: 20;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.menu {
+    width: min(430px, 90%);
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: rgba(15, 15, 15, 0.95);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 20px;
+
+    color: white;
+
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.menu h1 {
+    font-size: clamp(36px, 8vw, 60px);
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+.menu h2 {
+    font-size: 22px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+
+    color: #00c6ff;
+}
+
+.menu p {
+    margin: 10px 0;
+
+    color: #ddd;
+}
+
+#startButton,
+#restartButton {
+    margin-top: 20px;
+
+    padding: 15px 35px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #ff3b30,
+        #ff9500
+    );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+}
+
+#startButton:hover,
+#restartButton:hover {
+    transform: scale(1.05);
+}
+
+.instructions {
+    margin-top: 25px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #333;
+
+    font-size: 13px;
+}
+
+/* Mobile Controls */
+
+#mobileControls {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 20px;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 30;
+}
+
+#mobileControls button {
+    width: 65px;
+    height: 65px;
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    font-weight: bold;
+
+    touch-action: none;
+
+    user-select: none;
+}
+
+#mobileControls button:active {
+    background: rgba(255, 80, 0, 0.8);
+
+    transform: scale(0.95);
+}
+
+#gasBtn {
+    width: 80px !important;
+    height: 80px !important;
+}
+
+#nitroBtn {
+    background: rgba(0, 100, 255, 0.5) !important;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    #hud {
+        top: 8px;
+        left: 5px;
+        right: 5px;
+
+        gap: 4px;
+    }
+
+    .hudBox {
+        min-width: 58px;
+
+        padding: 6px 4px;
+    }
+
+    .hudBox span {
+        font-size: 8px;
+    }
+
+    .hudBox strong {
+        font-size: 11px;
+    }
+
+    #nitroContainer {
+        top: 72px;
+
+        right: 10px;
+
+        width: 130px;
+
+        font-size: 11px;
+    }
+
+    #mobileControls {
+        display: flex;
+    }
+
+    .instructions {
+        font-size: 11px;
+    }
+}
