@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Street Rush - Nitro Legends</title>
+    <meta name="description" content="Street Rush Nitro Legends - Free online racing game.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="gameContainer">
+
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+
+        <div class="hudBox">
+            <span>POSITION</span>
+            <strong id="position">1/5</strong>
+        </div>
+
+        <div class="hudBox">
+            <span>LAP</span>
+            <strong id="lap">1/3</strong>
+        </div>
+
+        <div class="hudBox">
+            <span>SPEED</span>
+            <strong><span id="speed">0</span> KM/H</strong>
+        </div>
+
+        <div class="hudBox">
+            <span>TIME</span>
+            <strong id="timer">00:00</strong>
+        </div>
+
+        <div class="hudBox">
+            <span>COINS</span>
+            <strong>🪙 <span id="coins">0</span></strong>
+        </div>
+
+    </div>
+
+    <!-- Nitro -->
+    <div id="nitroContainer">
+        <span>NITRO</span>
+        <div id="nitroBar">
+            <div id="nitroFill"></div>
+        </div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen">
+
+        <div class="menu">
+
+            <h1>STREET RUSH</h1>
+            <h2>NITRO LEGENDS</h2>
+
+            <p>🔥 Ultimate Arcade Racing</p>
+
+            <button id="startButton">
+                START RACE
+            </button>
+
+            <div class="instructions">
+
+                <p><b>PC CONTROLS</b></p>
+
+                <p>
+                    W / ↑ = Accelerate
+                </p>
+
+                <p>
+                    S / ↓ = Brake
+                </p>
+
+                <p>
+                    A / D = Steer
+                </p>
+
+                <p>
+                    SPACE = Nitro
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Finish Screen -->
+    <div id="finishScreen" class="screen hidden">
+
+        <div class="menu">
+
+            <h1>RACE FINISHED!</h1>
+
+            <h2 id="finalPosition">
+                POSITION 1
+            </h2>
+
+            <p>
+                Time: <span id="finalTime">00:00</span>
+            </p>
+
+            <p>
+                Coins: 🪙 <span id="finalCoins">0</span>
+            </p>
+
+            <button id="restartButton">
+                RACE AGAIN
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Mobile Controls -->
+
+    <div id="mobileControls">
+
+        <button id="leftBtn">◀</button>
+
+        <button id="brakeBtn">BRAKE</button>
+
+        <button id="gasBtn">GAS</button>
+
+        <button id="nitroBtn">NITRO</button>
+
+        <button id="rightBtn">▶</button>
+
+    </div>
+
+</div>
+
+<script src="game.js"></script>
+
+</body>
+</html>
